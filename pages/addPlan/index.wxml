@@ -1,0 +1,25 @@
+<view class="container">
+<view class="login-from">
+  <view class="inputView">
+      <label class="loginLab">头像认证</label>
+      <image wx:if="{{avatarUrl == ''}}" src='../../imgs/addimg.png' bindtap="uploadimg" style='width:200rpx;height:200rpx;'></image>
+      <image  wx:else src='{{avatarUrl}}' bindtap="uploadimg" style='width:200rpx;height:200rpx;'></image>
+  </view>
+  <view class="inputView">
+    <label class="loginLab">事项</label>
+    <input class="inputText" type="text" placeholder="请输入事项" bindinput="shixiangInput"/>
+  </view> 
+  <view class="inputView">
+    <label class="loginLab">时长</label>
+    <input class="inputText" type="number" placeholder="请输入时长" bindinput="hoursInput" />
+  </view> 
+
+
+  <view class="line"></view>
+
+  <!--按钮-->
+  <view class="loginBtnView">
+    <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">提交</button>
+  </view>
+</view>
+</view>
