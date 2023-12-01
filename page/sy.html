@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title>管理员界面初始页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../images/css/bootstrap.min.css" >
+    <link href="../images/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="../images/css/style-responsive.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../images/css/font.css" type="text/css"/>
+    <link href="../images/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../images/css/morris.css" type="text/css"/>
+    <link rel="stylesheet" href="../images/css/monthly.css">
+    <script src="../images/js/jquery2.0.3.min.js"></script>
+    <script src="../images/js/raphael-min.js"></script>
+    <script src="../images/js/morris.js"></script>
+    <script src="../js/vue2.6.11/vue.min.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+<div style="background: #eef9f0;height:100%;border-radius:3px;" class="sy">
+    <div id="app">
+        <el-calendar v-model="value">
+        </el-calendar>
+    </div>
+</div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return { value: new Date() }
+        }
+    })
+</script>
