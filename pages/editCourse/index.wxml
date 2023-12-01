@@ -1,0 +1,33 @@
+<view class="container">
+<view class="login-from">
+  <picker class="pick-bg" bindchange="bindPickerChange" range="{{array}}">
+    <view class="picker">
+      星期：{{xingqi}}
+    </view>
+  </picker>
+  <picker class="pick-bg" bindchange="bindPickerChange2" range="{{array2}}">
+    <view class="picker">
+      第几节：{{jieke}}
+    </view>
+  </picker>
+  <view class="inputView">
+    <label class="loginLab">工作</label>
+    <input class="inputText" type="text" placeholder="请输入所受工作" bindinput="suojiaokechengInput"/>
+  </view> 
+  <view class="inputView">
+    <label class="loginLab">授课教室</label>
+    <input class="inputText" type="text" placeholder="请输入授课教室" bindinput="suoshoujiaoshiInput" />
+  </view> 
+  <view class="inputView">
+    <label class="loginLab">授课老师</label>
+    <input class="inputText" type="text" value="{{user.userName}}"  disabled="disabled"/>
+  </view> 
+
+  <view class="line"></view>
+
+  <!--按钮-->
+  <view class="loginBtnView">
+    <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login">提交</button>
+  </view>
+</view>
+</view>

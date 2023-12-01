@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<view class="index">
+<view class="nx_line" style="background-color: white;">
+  <view style="width: 90%;height:640rpx;overflow:hidden;margin: 0 auto 40rpx;">
+  <calendar
+    id="calendar"
+    config="{{calendarConfig}}"
+    bind:onSwipe="onSwipe"
+    bind:whenChangeWeek="whenChangeWeek"
+    bind:whenChangeMonth="whenChangeMonth"
+    bind:takeoverTap="takeoverTap"
+    bind:afterTapDate="afterTapDate"
+    bind:afterCalendarRender="afterCalendarRender"
+  ></calendar>
+</view>
+</view>
+<view class="nx_line">
+    <view class="nx_line_title">
+      <span>事件{{year}}年{{month}}月{{day}}日</span>
+      <span style="float:right;color:red" bindtap="addShijian">+</span></view>
+    <view class="nx_line_list2">
+        <view class="nx_line_item">
+            <text style="font-size:20px;color:red">作业</text>
+            <view>数量：{{zuoyeCount}}</view>
+        </view>
+        <view class="nx_line_item">
+            <text style="font-size:20px;color:orange">考试</text>
+            <view>数量：{{kaoshiCount}}</view>
+        </view>
+        <view class="nx_line_item">
+            <text style="font-size:20px;color:grey">待办</text>
+            <view>数量：{{daibanCount}}</view>
+        </view>
+    </view>
+    <view class="nx_line_list">
+    <block wx:for="{{riliList}}" wx:for-item="item">
+      <view class="nx_line_item finish"
+      wx:if="{{item.status == '完成'}}"
+      >
+            <view style="flex:1;">
+                <view class="nx_item_name">
+                  <span>{{item.leixing}}({{item.status}})</span>
+                  <span style="float:right;color:red;font-size: 20px;" bindtap="delRili" data-id="{{item.id}}">-</span>
+                </view>
+                <view class="nx_item_name">
+                  <span>{{item.shijian}}</span>
+                  <span style="float:right;color:rgb(163, 233, 163);font-size: 20px;" bindtap="finishRili" data-id="{{item.id}}" wx:if="{{item.status=='未完成'}}">√</span>
+                </view>
+            </view>
+        </view>
+        <view class="nx_line_item unfinish"
+      wx:else=""
+      >
+            <view style="flex:1;">
+                <view class="nx_item_name">
+                  <span>{{item.leixing}}({{item.status}})</span>
+                  <span style="float:right;color:red;font-size: 20px;" bindtap="delRili" data-id="{{item.id}}">-</span>
+                </view>
+                <view class="nx_item_name">
+                  <span>{{item.shijian}}</span>
+                  <span style="float:right;color:rgb(163, 233, 163);font-size: 20px;" bindtap="finishRili" data-id="{{item.id}}" wx:if="{{item.status=='未完成'}}">√</span>
+                </view>
+            </view>
+        </view>
+        </block>
+    </view>
+</view>
+</view>

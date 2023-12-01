@@ -1,0 +1,35 @@
+<view class="nx_detail">
+  <view class="nx_detail_main">
+    <view class="nx_detail_main_item">
+      <view class="nx_detail_main_item_left">工作信息</view>
+      <view class="nx_detail_main_item_right">{{obj.suojiaokecheng}}</view>
+    </view>
+    <view class="nx_detail_main_item">
+      <view class="nx_detail_main_item_left">星期</view>
+      <view class="nx_detail_main_item_right">{{obj.xingqi}}</view>
+    </view>
+    <view class="nx_detail_main_item">
+      <view class="nx_detail_main_item_left">第几节</view>
+      <view class="nx_detail_main_item_right">{{obj.jieke}}</view>
+    </view>
+    <view class="nx_detail_main_item">
+      <view class="nx_detail_main_item_left">教室</view>
+      <view class="nx_detail_main_item_right">{{obj.suoshoujiaoshi}}</view>
+    </view>
+    <view class="nx_detail_main_item">
+      <view class="nx_detail_main_item_left">授课老师</view>
+      <view class="nx_detail_main_item_right">{{obj.jiaoshixingming}}</view>
+    </view>
+    <view class="nx_detail_main_item">
+      <view class="nx_detail_main_item_left">开始周</view>
+      <view class="nx_detail_main_item_right">{{obj.zhou1}}</view>
+    </view>
+    <view class="nx_detail_main_item">
+      <view class="nx_detail_main_item_left">结束周</view>
+      <view class="nx_detail_main_item_right">{{obj.zhou2}}</view>
+    </view>
+  </view>
+  <view class="loginBtnView"> 
+    <button type="danger" bindtap="del" style="margin-top:20px;background:red;color:white">删除</button>
+  </view> 
+</view>

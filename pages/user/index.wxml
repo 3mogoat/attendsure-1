@@ -1,0 +1,53 @@
+<view class="user_info_wrap">
+  <view wx:if="{{isLogin === 1}}" class="user_img_wrap">
+    <image class="user_bg" src="../../imgs/head.jpg" ></image>
+    <view class="user_info">
+      <image class="user_icon" src="{{avatarUrl}}"></image>
+      <view class="user_name">{{userinfo.name}}</view>
+      <view class="user_name" style="color:#222" wx:if="{{userinfo.level}}">{{userinfo.level}}({{userinfo.userName}})</view>
+    </view>
+  </view>
+  <view wx:else class="user_btn">
+    <navigator url="/pages/login/index?isTabBar=1&url=/pages/user/index" >登录</navigator>
+  </view>
+</view>
+<view class="user_content" wx:if="{{userinfo.level && userinfo.userId}}">
+  <view class="user_main">
+    <!-- 我的订单 -->
+    <view class="orders_wrap">
+      <view class="orders_title" bindtap="navigateToXuexiao">个人信息</view>
+    </view>
+    <!-- 应用信息相关 -->
+    <view class="app_info_wrap">
+      <view class="app_info_item app_info_contact">
+        <text> 联系客服</text>
+        <text>400-618-4000</text>
+      </view>
+      <view class="app_info_item"><image class="nameImage2" src="../../icons/me.png"></image>关于我们</view>
+      <view class="app_info_item"><button  class='btn-submit' size='default' bindtap="exitAccount">退出</button></view>
+   
+    </view>
+  </view>
+
+</view>
+<view class="form-wrap" wx:else>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class="section" style="margin-top:20px">
+        <input name="name" placeholder="请输入真实姓名" bindinput="nameInput" />
+      </view>
+      <view class="section">
+        <input name="code" placeholder="请输入学号" bindinput="codeInput" />
+      </view>
+      <view class="section">
+        <picker class="pick-bg" bindchange="bindPickerChange" value="{{sex}}" range="{{array}}">
+          <view class="picker">
+            学生：{{leixing}}
+          </view>
+        </picker>
+      </view>
+      <view class="btn-area">
+        <button formType="submit">绑定</button>
+        <text class="bind-tip"><text style="color:red">友情提示</text>：请先绑定用户 </text>
+      </view>
+    </form>
+</view>

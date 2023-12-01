@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<view class="index">
+<!-- 轮播图结束 -->
+<view class="nx_line">
+    <view class="nx_line_title">
+      <span>课表信息</span>
+      <span style="float:right;color:red" bindtap="addCourse">+</span>
+    </view>
+    <view class="nx_line_title">
+      <picker class="pick-bg" bindchange="bindPickerChange" range="{{array}}">
+      <span>第{{index}}周</span>
+    </picker>
+    </view>
+    <view class="nx_line_list">
+<view class="top">
+  <view wx:for="{{['星期一','星期二','星期三','星期四','星期五','星期六','星期日']}}" class="top-text">{{item}}</view>
+</view>
+<scroll-view scroll-y="true" class="scroll">
+  <view style="height:1600rpx;width:730rpx;display:flex;">
+    <view style="background-color:#D2E6B3;color:#7cba23;">
+      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}" class="left">
+        {{item}}
+      </view>
+    </view>
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}">
+      <view style="width:750rpx;margin-top:{{(index+1)*150}}rpx;  position: absolute;border-bottom:1rpx solid {{index==3?'red':'lightgray'}};">
+      </view>
+    </view>
+
+    <!--课表-->
+    <view wx:for="{{wlist}}">
+      <navigator url="/pages/courseDetail/index?id={{item.id}}" class="flex-item kcb-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*150+7.5}}rpx;height:{{item.skcd*150-7.5}}rpx;background-color:{{colorArrays[index%9]}}">
+        <view class="smalltext" >{{item.kcmc}}</view>
+      </navigator>
+    </view>
+  </view>
+</scroll-view>
+    </view>
+</view>
+</view>

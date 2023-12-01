@@ -1,0 +1,55 @@
+<view class="container timer">
+	<view class="timer_main">
+		 <view class="timer_time-wrap" 	bindtap="startTimer" wx:if="{{!isRuning}}">
+		 		<view class="timer_progress_mask"></view>
+			 	<text class="timer_time">{{value}}</text>
+		 </view>
+     <view class="timer_time-wrap" wx:if="{{isRuning}}" 	bindtap="stopTimer">
+		 		<view class="timer_progress_mask"></view>
+			 	<text class="timer_time">{{value}}</text>
+		 </view>
+	</view>
+</view>
+<picker class="text" bindchange="bindPickerChange" range="{{array}}">
+    <view class="picker">
+      请选择您的任务：{{shixiang}}
+    </view>
+  </picker>
+<view class="nx_line" style="margin-top: 60rpx;">
+    <view class="nx_line_title">
+      <span>今日考勤事项时间</span>
+      <span style="float:right;color:red" bindtap="addCourse">+</span>
+    </view>
+    <view class="nx_line_list">
+    <block wx:for="{{planList}}" wx:for-item="item">
+      <view class="nx_line_item" style="background-color: {{item.status=='完成'?'rgb(163, 233, 163);':''}}">
+            <view style="flex:1;">
+                <view class="nx_item_name">
+                  <span>任务：{{item.shixiang}}</span>
+                  <span style="float:right;color:red;font-size: 20px;" bindtap="delPlan" data-id="{{item.id}}">-</span>
+                </view>
+                <view class="nx_item_name">考勤时长：{{item.hours}}小时</view>
+                <view class="nx_item_name" wx:if="{{item.status == '未完成'}}">剩余时长：{{item.lastHours}}小时</view>
+                <view class="nx_item_name" wx:else>完成</view>
+            </view>
+        </view>
+        </block>
+    </view>
+    </view>
+    <view class="nx_line">
+    <view class="nx_line_title">
+      <span>今日打卡时间</span>
+    </view>
+    <view class="nx_line_list">
+      <view class="nx_line_item" wx:for="{{xuexiList}}" wx:for-item="item">
+            <view style="flex:1;" wx:if="{{item.planInfo.id}}">
+                <view class="nx_item_name">
+                  <span>任务：{{item.planInfo.shixiang}}</span>
+                  <span style="float:right;color:red;font-size: 20px;" bindtap="delXuexi" data-id="{{item.id}}">-</span>
+                </view>
+                <view class="nx_item_name">以考勤：{{item.hours}}小时</view>
+            </view>
+        </view>
+    </view>
+    </view>
+
